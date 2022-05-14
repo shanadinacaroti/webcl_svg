@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import eyeSvg from './resources/RoundEye.svg';
-import SvgComponent from './components/svgComponent';
+import { SvgComponent } from './components/svgComponent';
 
 function App() {
   return (
@@ -9,8 +7,8 @@ function App() {
       <header className="App-header">
       </header>
         <div>
-            <SvgComponent/>
-            <SvgComponent/>
+            <SvgComponent />
+            <SvgComponent />
         </div>
     </div>
   );

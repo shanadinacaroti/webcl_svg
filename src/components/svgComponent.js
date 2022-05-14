@@ -1,8 +1,26 @@
-import React from 'react';
+import { useState } from 'react';
 
-const SvgComponent = () => {
+export function SvgComponent() {
+    const [opac, setOpac] = useState(0);
+
+    function openEyes() {
+        setOpac(0);
+    }
+
+    function closeEyes() {
+        setOpac(1);
+    }
+
+    function eyeMovement() {
+        if (opac === 0) {
+            closeEyes();
+        } else {
+            openEyes();
+        }
+    }
+
     return (
-        <svg id="{id}" viewBox="0 0 120 120">
+        <svg id="{id}" viewBox="0 0 120 120" onClick={eyeMovement}>
 
             <filter id="shadow">
                 <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -30,10 +48,8 @@ const SvgComponent = () => {
                 <path d="M0 60 A60,60 0 0,0 120,60 A60,40 0 0,1 0,60 Z" opacity="1" fill="#F4CB76" fillOpacity="1" />
             </g>
             <g id="{id}_closeLid">
-                <path d="M0 60 A60,60 0 0,1 120,60 A60,40 0 0,1 0,60 Z" opacity="1" fill="#FDDC99" fillOpacity="1" />
+                <path d="M0 60 A60,60 0 0,1 120,60 A60,40 0 0,1 0,60 Z" opacity="1" fill="#FDDC99" fillOpacity={opac}/>
             </g>
         </svg>
     );
 }
-
-export default SvgComponent;
